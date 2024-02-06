@@ -25,6 +25,7 @@ In de linkerkolom is er een menu waarin je een keuze kunt maken voor de marsland
 Als de gebruiker op de knop ‘Zoek foto’s’ klikt, dan zijn er twee mogelijke gevolgen. De eerste zien we in het volgende screenshot: er zijn voor de aangegeven combinatie van rover, camera en datum geen foto’s gevonden.
 
 ![image](https://github.com/priksten/Mars-API-Foto-s/assets/85739742/8cb0c498-8f5d-4761-8dca-ca15d9963f74)
+
 In het tweede scenario worden er wel foto’s gevonden. In dat geval worden de foto’s gedownload. Er is altijd een progressbar zichtbaar die aangeeft hoe ver het proces van het ophalen en downloaden van de foto’s gevorderd is:
 ![image](https://github.com/priksten/Mars-API-Foto-s/assets/85739742/301e42a3-ec31-4731-b17f-b6dd379231ee)
 
