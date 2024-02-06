@@ -27,5 +27,6 @@ Als de gebruiker op de knop ‘Zoek foto’s’ klikt, dan zijn er twee mogelijk
 ![image](https://github.com/priksten/Mars-API-Foto-s/assets/85739742/8cb0c498-8f5d-4761-8dca-ca15d9963f74)
 In het tweede scenario worden er wel foto’s gevonden. In dat geval worden de foto’s gedownload. Er is altijd een progressbar zichtbaar die aangeeft hoe ver het proces van het ophalen en downloaden van de foto’s gevorderd is:
 ![image](https://github.com/priksten/Mars-API-Foto-s/assets/85739742/301e42a3-ec31-4731-b17f-b6dd379231ee)
+
 Als de foto’s gedownload zijn, dan kun je deze bekijken door op de knop ‘Toon foto’s’ te klikken. De foto’s verschijnen dan in de rechterkolom. De foto’s zijn te bekijken door op knoppen ‘Vorige’ of ‘Volgende’ te klikken. Tussen deze twee knoppen, is er een label dat aangeeft hoeveel foto’s er zijn en wat het nummer van deze foto in het rijtje is. 
 ![image](https://github.com/priksten/Mars-API-Foto-s/assets/85739742/58ecb0da-37c4-4a12-83ef-79628860ca9b)
