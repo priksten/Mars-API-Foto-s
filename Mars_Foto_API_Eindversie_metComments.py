@@ -28,6 +28,12 @@
 # 6. load_previous, load_next: functies die maken dat de knoppen waarmee je door de foto's kunt klikken werken. 
 #            Deze functies gebruiken: get_image_dimensions, resize_image, update_picture_label
 # Merk dus op dat in dit programma de foto's allemaal herschaald worden zodat de breedte van de foto overal hetzelfde is, namelijk 600. De lengte wordt dan naar ratio hieraan aangepast. 
+#
+# Als je dit programma gebruikt, denk er dan om dat je een map aanmaakt waarin gedwonloade afbeeldingen kunnen worden geplaatst.
+# Het pad naar deze map moet op verschillende plekken in de code worden ingevoerd:
+#   1. create_pictures_directory (functie-definitie begint op regel 552, 'directory' in regel 562)
+#   2. show_pictures(functie-definitie begint op regel 618, 'image_folder' in regel 626)
+#   3. start_info(start op regel 698, 'directory' in regel 707 en 'image_folder' in regel 733)
 
 # --------------------------------------------------------------------------------------------------------------------------------------
 # We importeren alle modules die we voor dit programma nodig hebben
@@ -553,7 +559,7 @@ def create_pictures_directory(rover, parameters):
         selected_cam = cam
 
     directory = str(rover + "_" + selected_cam + "_" + date)
-    parent_dir = "D:\\Mars Foto API\\Eindversie\\Downloaded_Images"
+    parent_dir = "C:\\Users\Administrator.REAGR008\\Documents\\Mars Foto's\\Downloaded_Images"
 
     path = os.path.join(parent_dir, directory)
     
@@ -617,7 +623,7 @@ def show_pictures():
     global navigation_frame
     global img
 
-    image_folder = "D:\\Mars Foto API\\Eindversie\\Downloaded_Images"
+    image_folder = "C:\\Users\Administrator.REAGR008\\Documents\\Mars Foto's\\Downloaded_Images"
     try:
         folder_list = make_folder_list(directory)
         print(folder_list)
@@ -644,7 +650,6 @@ def show_pictures():
         header.grid_forget()
         info_label.grid_forget()
         navigation_frame.grid_forget()
-
         header = str("Mars Lander: " + rover + "    Camera's: " + cam + "    Datum: " + datum )
         # Titel: Mars Foto met info: Rover, camera en datum
         header = ttk.Label(show_photos, text = header)
@@ -669,8 +674,8 @@ def show_pictures():
         navigation_frame.grid(row = 1, column = 0)
     except TypeError:
         showinfo(message="Er zijn nog geen foto's om weer te geven. Download eerst foto's!")
-    except NameError:
-        pass
+    #except NameError:
+    #    pass
 
 def center_image(canvas, image):
     canvas_width = canvas.winfo_width()
@@ -699,8 +704,8 @@ def start_info():
     global header
     global info_label
     
-    directory = "D:\\Mars Foto API\\Eindversie\\Downloaded_Images"
-
+    directory = "C:\\Users\Administrator.REAGR008\\Documents\\Mars Foto's\\Downloaded_Images"
+    index_picture = -1 
     folder_list = make_folder_list(directory)
     # print(folder_list)
     time_list = create_ctime_list(folder_list, directory)
@@ -720,9 +725,12 @@ def start_info():
         header.grid(row = 1, column = 0)
 
     except NameError:
-        pass
+        header = str("Mars Lander: Geen"  + "    Camera's: Geen"  "    Datum: Geen" ) 
+        # Titel: Mars Foto met info: Rover, camera en datum
+        header = ttk.Label(show_photos, text = header)
+        header.grid(row = 1, column = 0) 
   
-    image_folder = "D:\\Mars Foto API\\Eindversie\\Downloaded_Images"
+    image_folder = "C:\\Users\Administrator.REAGR008\\Documents\\Mars Foto's\\Downloaded_Images"
 
     try:
         folder_list = make_folder_list(directory)
@@ -741,7 +749,7 @@ def start_info():
         number = count_images(path)
         name_list = create_photo_list(number)
         # print(name_list)
-        index_picture = -1 
+        
 
         update_picture_label()
         info_label.grid(row = 0, column = 1)
@@ -749,7 +757,9 @@ def start_info():
         index_picture = -1
     
     except TypeError:
-        pass
+        message = str(" Foto 0" + " van 0") 
+        info_label = ttk.Label(navigation_frame, text = message, width= 16) 
+        info_label.grid(row = 0, column = 1)
 
 def resize_image(image, width, height):
     global new_image
